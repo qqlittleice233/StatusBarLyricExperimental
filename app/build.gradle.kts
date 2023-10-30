@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.konan.properties.Properties
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("dev.rikka.tools.refine") version "4.4.0"
 }
 
 val localProperties = Properties()
@@ -59,6 +60,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        aidl = true
     }
     applicationVariants.all {
         outputs.all {
@@ -75,6 +77,9 @@ kotlin {
 
 dependencies {
     compileOnly("de.robv.android.xposed:api:82")
+    implementation("dev.rikka.hidden:compat:4.3.1")
+    compileOnly("dev.rikka.hidden:stub:4.3.1")
+
     implementation(project(":blockmiui"))
     implementation(project(":xtoast"))
     implementation("com.github.kyuubiran:EzXHelper:2.0.7")

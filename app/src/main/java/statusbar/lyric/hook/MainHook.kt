@@ -31,6 +31,11 @@ class MainHook : IXposedHookLoadPackage, IXposedHookZygoteInit {
                     moduleRes.getString(R.string.lyric_mode).log()
                     initHooks(SystemUILyric())
                 }
+                runCatching {
+                    UserService.register()
+                }.onFailure {
+                    it.log()
+                }
             }
         }
     }

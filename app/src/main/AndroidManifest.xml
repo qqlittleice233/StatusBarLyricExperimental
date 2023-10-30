@@ -35,6 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
+        <provider
+                android:exported="true"
+                android:authorities="statusbar.lyric.app.ServiceProvider"
+                android:name=".app.ServiceProvider"
+                tools:ignore="ExportedContentProvider" />
         <meta-data
                 android:name="EasyGoClient"
                 android:value="true" />
